@@ -1,0 +1,5 @@
+*
+!.gitignore
+!contracts/
+!contracts/**
+!baseline.json

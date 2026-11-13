@@ -1,0 +1,31 @@
+{
+  "access": {
+    "owner_bundle": null,
+    "policy": "authenticated",
+    "required_role": null
+  },
+  "attack": null,
+  "body": null,
+  "method": "delete",
+  "parameters": {
+    "header": {},
+    "path": {},
+    "query": {}
+  },
+  "path_url": "/articles/{slug}/favorite",
+  "required_parameters": {
+    "header": [],
+    "path": [],
+    "query": []
+  },
+  "risk": {
+    "auth_surface": true,
+    "criticality": "medium",
+    "external_side_effects": false,
+    "risk_score": 45,
+    "sensitivity": "pii",
+    "write_operation": true
+  },
+  "semantic_properties": null,
+  "transitions": null
+}

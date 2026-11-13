@@ -1,0 +1,31 @@
+{
+  "access": {
+    "owner_bundle": null,
+    "policy": "authenticated",
+    "required_role": null
+  },
+  "attack": null,
+  "body": null,
+  "method": "get",
+  "parameters": {
+    "header": {},
+    "path": {},
+    "query": {}
+  },
+  "path_url": "/user",
+  "required_parameters": {
+    "header": [],
+    "path": [],
+    "query": []
+  },
+  "risk": {
+    "auth_surface": true,
+    "criticality": "high",
+    "external_side_effects": false,
+    "risk_score": 75,
+    "sensitivity": "auth",
+    "write_operation": false
+  },
+  "semantic_properties": null,
+  "transitions": null
+}

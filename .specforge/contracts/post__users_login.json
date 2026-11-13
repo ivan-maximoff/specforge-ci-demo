@@ -1,0 +1,107 @@
+{
+  "access": {
+    "owner_bundle": null,
+    "policy": "public",
+    "required_role": null
+  },
+  "attack": null,
+  "body": {
+    "default": null,
+    "description": null,
+    "enum": null,
+    "examples": null,
+    "format": null,
+    "items": null,
+    "maxItems": null,
+    "maxLength": null,
+    "maximum": null,
+    "minItems": null,
+    "minLength": null,
+    "minimum": null,
+    "pattern": null,
+    "properties": {
+      "user": {
+        "default": null,
+        "description": null,
+        "enum": null,
+        "examples": null,
+        "format": null,
+        "items": null,
+        "maxItems": null,
+        "maxLength": null,
+        "maximum": null,
+        "minItems": null,
+        "minLength": null,
+        "minimum": null,
+        "pattern": null,
+        "properties": {
+          "email": {
+            "default": null,
+            "description": null,
+            "enum": null,
+            "examples": null,
+            "format": "email",
+            "items": null,
+            "maxItems": null,
+            "maxLength": null,
+            "maximum": null,
+            "minItems": null,
+            "minLength": 1,
+            "minimum": null,
+            "pattern": null,
+            "properties": null,
+            "required": null,
+            "type": "string"
+          },
+          "password": {
+            "default": null,
+            "description": null,
+            "enum": null,
+            "examples": null,
+            "format": null,
+            "items": null,
+            "maxItems": null,
+            "maxLength": 255,
+            "maximum": null,
+            "minItems": null,
+            "minLength": 8,
+            "minimum": null,
+            "pattern": null,
+            "properties": null,
+            "required": null,
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object"
+      }
+    },
+    "required": null,
+    "type": "object"
+  },
+  "method": "post",
+  "parameters": {
+    "header": {},
+    "path": {},
+    "query": {}
+  },
+  "path_url": "/users/login",
+  "required_parameters": {
+    "header": [],
+    "path": [],
+    "query": []
+  },
+  "risk": {
+    "auth_surface": true,
+    "criticality": "high",
+    "external_side_effects": false,
+    "risk_score": 85,
+    "sensitivity": "auth",
+    "write_operation": false
+  },
+  "semantic_properties": null,
+  "transitions": null
+}

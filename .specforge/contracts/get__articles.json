@@ -1,0 +1,68 @@
+{
+  "access": {
+    "owner_bundle": null,
+    "policy": "public",
+    "required_role": null
+  },
+  "attack": null,
+  "body": null,
+  "method": "get",
+  "parameters": {
+    "header": {},
+    "path": {},
+    "query": {
+      "limit": {
+        "default": 20,
+        "description": null,
+        "enum": null,
+        "examples": null,
+        "format": null,
+        "items": null,
+        "maxItems": null,
+        "maxLength": null,
+        "maximum": null,
+        "minItems": null,
+        "minLength": null,
+        "minimum": null,
+        "pattern": null,
+        "properties": null,
+        "required": null,
+        "type": "integer"
+      },
+      "offset": {
+        "default": 0,
+        "description": null,
+        "enum": null,
+        "examples": null,
+        "format": null,
+        "items": null,
+        "maxItems": null,
+        "maxLength": null,
+        "maximum": null,
+        "minItems": null,
+        "minLength": null,
+        "minimum": null,
+        "pattern": null,
+        "properties": null,
+        "required": null,
+        "type": "integer"
+      }
+    }
+  },
+  "path_url": "/articles",
+  "required_parameters": {
+    "header": [],
+    "path": [],
+    "query": []
+  },
+  "risk": {
+    "auth_surface": false,
+    "criticality": "medium",
+    "external_side_effects": false,
+    "risk_score": 45,
+    "sensitivity": "pii",
+    "write_operation": true
+  },
+  "semantic_properties": null,
+  "transitions": null
+}

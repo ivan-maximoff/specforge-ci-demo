@@ -1,0 +1,12 @@
+# Spec Forge Configuration
+[project]
+name = "RealWorld Conduit API"
+openapi_spec = "openapi.yml"
+base_url = "http://localhost:8000"
+
+# Options go under [engine], [llm] and [inference]. Ask the core what there is
+# rather than guessing: `get_config` lists every option with its default and
+# says which ones you have changed.
+
+[replay]
+source_root = "/src"

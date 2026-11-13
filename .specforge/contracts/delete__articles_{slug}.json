@@ -1,0 +1,44 @@
+{
+  "access": {
+    "owner_bundle": "articles_slug",
+    "policy": "owner_only",
+    "required_role": null
+  },
+  "attack": null,
+  "body": null,
+  "method": "delete",
+  "parameters": {
+    "header": {},
+    "path": {},
+    "query": {}
+  },
+  "path_url": "/articles/{slug}",
+  "required_parameters": {
+    "header": [],
+    "path": [],
+    "query": []
+  },
+  "risk": {
+    "auth_surface": true,
+    "criticality": "high",
+    "external_side_effects": false,
+    "risk_score": 75,
+    "sensitivity": "auth",
+    "write_operation": true
+  },
+  "semantic_properties": null,
+  "transitions": [
+    {
+      "bundle": "articles_slug",
+      "echoed_fields": [],
+      "expected_statuses": [
+        404
+      ],
+      "follow_up_method": "get",
+      "follow_up_path": "/articles/{slug}",
+      "target_field": "slug",
+      "target_zone": "path",
+      "trigger_statuses": null
+    }
+  ]
+}

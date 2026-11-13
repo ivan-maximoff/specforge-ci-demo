@@ -1,0 +1,206 @@
+{
+  "defects": [
+    {
+      "identity_label": "alice",
+      "invariant_violated": "input_validation",
+      "method": "GET",
+      "path": "/articles",
+      "status_code": 200,
+      "summary": "`GET /articles` accepted (200) `query.offset = \"-1\"`, which its contract forbids (`minimum: 0`)."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "contract_completeness",
+      "method": "POST",
+      "path": "/articles",
+      "status_code": 422,
+      "summary": "`POST /articles` answered 422 when `body.article.body = \"\"` was sent: the server enforces `minLength: 1`, a rule the inferred contract declares and the spec leaves out."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "information_disclosure",
+      "method": "POST",
+      "path": "/articles",
+      "status_code": 422,
+      "summary": "`POST /articles` answered 422 disclosing `sql_constraint_error` (`UNIQUE constraint failed`)."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "input_validation",
+      "method": "GET",
+      "path": "/articles/feed",
+      "status_code": 200,
+      "summary": "`GET /articles/feed` accepted (200) `query.limit = \"0\"`, which its contract forbids (`minimum: 1`)."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "content_type_conformance",
+      "method": "DELETE",
+      "path": "/articles/{slug}",
+      "status_code": 404,
+      "summary": "`DELETE /articles/{slug}` answered 404 with `text/plain`; its contract declares `application/json`."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "status_code_conformance",
+      "method": "DELETE",
+      "path": "/articles/{slug}",
+      "status_code": 200,
+      "summary": "`DELETE /articles/{slug}` answered 200; its contract declares 204, 401, 403, 404 and 422."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "content_type_conformance",
+      "method": "GET",
+      "path": "/articles/{slug}",
+      "status_code": 404,
+      "summary": "`GET /articles/{slug}` answered 404 with `text/plain`; its contract declares `application/json`."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "contract_completeness",
+      "method": "PUT",
+      "path": "/articles/{slug}",
+      "status_code": 422,
+      "summary": "`PUT /articles/{slug}` answered 422 when `body.article.body = \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa…` was sent: the server enforces `maxLength: 2048`, a rule the inferred contract declares and the spec leaves out."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "content_type_conformance",
+      "method": "GET",
+      "path": "/articles/{slug}/comments",
+      "status_code": 404,
+      "summary": "`GET /articles/{slug}/comments` answered 404 with `text/plain`; its contract declares `application/json`."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "contract_completeness",
+      "method": "POST",
+      "path": "/articles/{slug}/comments",
+      "status_code": 422,
+      "summary": "`POST /articles/{slug}/comments` answered 422 when `body.comment.body = \"\"` was sent: the server enforces `minLength: 1`, a rule the inferred contract declares and the spec leaves out."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "content_type_conformance",
+      "method": "DELETE",
+      "path": "/articles/{slug}/comments/{id}",
+      "status_code": 404,
+      "summary": "`DELETE /articles/{slug}/comments/{id}` answered 404 with `text/plain`; its contract declares `application/json`."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "status_code_conformance",
+      "method": "DELETE",
+      "path": "/articles/{slug}/comments/{id}",
+      "status_code": 200,
+      "summary": "`DELETE /articles/{slug}/comments/{id}` answered 200; its contract declares 204, 401, 403, 404 and 422."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "content_type_conformance",
+      "method": "DELETE",
+      "path": "/articles/{slug}/favorite",
+      "status_code": 404,
+      "summary": "`DELETE /articles/{slug}/favorite` answered 404 with `text/plain`; its contract declares `application/json`."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "content_type_conformance",
+      "method": "POST",
+      "path": "/articles/{slug}/favorite",
+      "status_code": 404,
+      "summary": "`POST /articles/{slug}/favorite` answered 404 with `text/plain`; its contract declares `application/json`."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "content_type_conformance",
+      "method": "GET",
+      "path": "/profiles/{username}",
+      "status_code": 404,
+      "summary": "`GET /profiles/{username}` answered 404 with `text/plain`; its contract declares `application/json`."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "content_type_conformance",
+      "method": "DELETE",
+      "path": "/profiles/{username}/follow",
+      "status_code": 404,
+      "summary": "`DELETE /profiles/{username}/follow` answered 404 with `text/plain`; its contract declares `application/json`."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "content_type_conformance",
+      "method": "POST",
+      "path": "/profiles/{username}/follow",
+      "status_code": 404,
+      "summary": "`POST /profiles/{username}/follow` answered 404 with `text/plain`; its contract declares `application/json`."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "contract_completeness",
+      "method": "PUT",
+      "path": "/user",
+      "status_code": 422,
+      "summary": "`PUT /user` answered 422 when `body.user.password = ***` was sent: the server enforces `minLength: 8`, a rule the inferred contract declares and the spec leaves out."
+    },
+    {
+      "identity_label": "bob",
+      "invariant_violated": "contract_completeness",
+      "method": "PUT",
+      "path": "/user",
+      "status_code": 422,
+      "summary": "`PUT /user` answered 422 to a request its contract allows; the response names no declared field (observed once; it did not reproduce)."
+    },
+    {
+      "identity_label": "bob",
+      "invariant_violated": "information_disclosure",
+      "method": "PUT",
+      "path": "/user",
+      "status_code": 422,
+      "summary": "`PUT /user` answered 422 disclosing `sql_constraint_error` (`UNIQUE constraint failed`) when `body.user.username` was sent (observed once; it did not reproduce)."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "contract_completeness",
+      "method": "POST",
+      "path": "/users",
+      "status_code": 422,
+      "summary": "`POST /users` answered 422 when `body.user.password = ***` was sent: the server enforces `minLength: 8`, a rule the inferred contract declares and the spec leaves out."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "information_disclosure",
+      "method": "POST",
+      "path": "/users",
+      "status_code": 422,
+      "summary": "`POST /users` answered 422 disclosing `sql_constraint_error` (`UNIQUE constraint failed`)."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "input_validation",
+      "method": "POST",
+      "path": "/users",
+      "status_code": 201,
+      "summary": "`POST /users` accepted (201) `body.user.image = \"\"`, which its contract forbids (`format: \"uri\"`) (observed once; the run stopped before retrying it)."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "mass_assignment",
+      "method": "POST",
+      "path": "/users",
+      "status_code": 201,
+      "summary": "`POST /users` accepted the undeclared `body.user.image = \"\"` with 201 and echoed it back (observed once; the run stopped before retrying it)."
+    },
+    {
+      "identity_label": "alice",
+      "invariant_violated": "contract_completeness",
+      "method": "POST",
+      "path": "/users/login",
+      "status_code": 422,
+      "summary": "`POST /users/login` answered 422 when `body.user.password = ***` was sent: the server enforces `minLength: 8`, a rule the inferred contract declares and the spec leaves out (observed once; nothing to judge it against)."
+    }
+  ],
+  "schema_version": 1,
+  "use_llm": true
+}

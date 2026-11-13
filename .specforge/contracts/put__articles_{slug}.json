@@ -1,0 +1,122 @@
+{
+  "access": {
+    "owner_bundle": "articles_slug",
+    "policy": "owner_only",
+    "required_role": null
+  },
+  "attack": null,
+  "body": {
+    "default": null,
+    "description": null,
+    "enum": null,
+    "examples": null,
+    "format": null,
+    "items": null,
+    "maxItems": null,
+    "maxLength": null,
+    "maximum": null,
+    "minItems": null,
+    "minLength": null,
+    "minimum": null,
+    "pattern": null,
+    "properties": {
+      "article": {
+        "default": null,
+        "description": null,
+        "enum": null,
+        "examples": null,
+        "format": null,
+        "items": null,
+        "maxItems": null,
+        "maxLength": null,
+        "maximum": null,
+        "minItems": null,
+        "minLength": null,
+        "minimum": null,
+        "pattern": null,
+        "properties": {
+          "body": {
+            "default": null,
+            "description": null,
+            "enum": null,
+            "examples": null,
+            "format": null,
+            "items": null,
+            "maxItems": null,
+            "maxLength": 2048,
+            "maximum": null,
+            "minItems": null,
+            "minLength": 1,
+            "minimum": null,
+            "pattern": null,
+            "properties": null,
+            "required": null,
+            "type": "string"
+          },
+          "description": {
+            "default": null,
+            "description": null,
+            "enum": null,
+            "examples": null,
+            "format": null,
+            "items": null,
+            "maxItems": null,
+            "maxLength": 2048,
+            "maximum": null,
+            "minItems": null,
+            "minLength": 1,
+            "minimum": null,
+            "pattern": null,
+            "properties": null,
+            "required": null,
+            "type": "string"
+          },
+          "title": {
+            "default": null,
+            "description": null,
+            "enum": null,
+            "examples": null,
+            "format": null,
+            "items": null,
+            "maxItems": null,
+            "maxLength": null,
+            "maximum": null,
+            "minItems": null,
+            "minLength": 4,
+            "minimum": null,
+            "pattern": null,
+            "properties": null,
+            "required": null,
+            "type": "string"
+          }
+        },
+        "required": null,
+        "type": "object"
+      }
+    },
+    "required": [],
+    "type": "object"
+  },
+  "method": "put",
+  "parameters": {
+    "header": {},
+    "path": {},
+    "query": {}
+  },
+  "path_url": "/articles/{slug}",
+  "required_parameters": {
+    "header": [],
+    "path": [],
+    "query": []
+  },
+  "risk": {
+    "auth_surface": true,
+    "criticality": "high",
+    "external_side_effects": false,
+    "risk_score": 65,
+    "sensitivity": "internal",
+    "write_operation": true
+  },
+  "semantic_properties": null,
+  "transitions": null
+}

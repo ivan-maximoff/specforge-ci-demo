@@ -1,0 +1,31 @@
+{
+  "access": {
+    "owner_bundle": null,
+    "policy": "public",
+    "required_role": null
+  },
+  "attack": null,
+  "body": null,
+  "method": "get",
+  "parameters": {
+    "header": {},
+    "path": {},
+    "query": {}
+  },
+  "path_url": "/tags",
+  "required_parameters": {
+    "header": [],
+    "path": [],
+    "query": []
+  },
+  "risk": {
+    "auth_surface": false,
+    "criticality": "low",
+    "external_side_effects": false,
+    "risk_score": 15,
+    "sensitivity": "public",
+    "write_operation": false
+  },
+  "semantic_properties": null,
+  "transitions": null
+}

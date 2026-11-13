@@ -1,0 +1,52 @@
+{
+  "access": {
+    "owner_bundle": "articles_comments_id",
+    "policy": "owner_only",
+    "required_role": null
+  },
+  "attack": null,
+  "body": null,
+  "method": "delete",
+  "parameters": {
+    "header": {},
+    "path": {
+      "id": {
+        "default": null,
+        "description": null,
+        "enum": null,
+        "examples": null,
+        "format": null,
+        "items": null,
+        "maxItems": null,
+        "maxLength": null,
+        "maximum": 4294967295,
+        "minItems": null,
+        "minLength": null,
+        "minimum": 0,
+        "pattern": null,
+        "properties": null,
+        "required": null,
+        "type": "integer"
+      }
+    },
+    "query": {}
+  },
+  "path_url": "/articles/{slug}/comments/{id}",
+  "required_parameters": {
+    "header": [],
+    "path": [
+      "id"
+    ],
+    "query": []
+  },
+  "risk": {
+    "auth_surface": true,
+    "criticality": "high",
+    "external_side_effects": false,
+    "risk_score": 75,
+    "sensitivity": "auth",
+    "write_operation": true
+  },
+  "semantic_properties": null,
+  "transitions": null
+}
