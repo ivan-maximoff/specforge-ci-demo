@@ -1,0 +1,5 @@
+# Written by specforge_identities.py on every run: its tokens are not to be committed.
+identities.toml
+# What a SpecForge run leaves: the job's report and the fuzzer's own cache.
+specforge-out/
+.hypothesis/

@@ -1,0 +1,18 @@
+# Go 1.21 segun go.mod. El driver sqlite de gorm usa mattn/go-sqlite3, que es
+# cgo: hace falta gcc al compilar y libc en runtime, asi que no sirve scratch.
+FROM golang:1.21-bookworm AS build
+WORKDIR /src
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+RUN CGO_ENABLED=1 go build -o /out/conduit .
+
+FROM debian:bookworm-slim
+WORKDIR /app
+COPY --from=build /out/conduit /app/conduit
+# gorm.Open no crea el directorio del archivo sqlite: sin esto falla al arrancar.
+RUN mkdir -p /app/data
+ENV PORT=8080
+ENV DB_PATH=/app/data/gorm.db
+EXPOSE 8080
+ENTRYPOINT ["/app/conduit"]

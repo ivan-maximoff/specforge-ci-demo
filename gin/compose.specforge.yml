@@ -1,0 +1,10 @@
+# Conforme a real-world/stack/CONTRATO.md.
+# Sin servicio de base: SQLite en la capa de escritura del contenedor.
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.specforge
+    ports:
+      - "8000:8080"
+    restart: "no"
