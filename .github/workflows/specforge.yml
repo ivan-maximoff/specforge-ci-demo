@@ -1,0 +1,63 @@
+# SpecForge on RealWorld Go: start the API, write its identities and fail only on a defect
+# .specforge/baseline.json does not accept.
+#
+# The image is private while SpecForge is not published: this repository reads it with its own
+# GITHUB_TOKEN once the package grants it read access (Package settings > Manage Actions access).
+# The OPENAI_API_KEY secret is the model's key; LLM_MODEL is the model the committed contracts
+# were inferred with.
+name: specforge
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: read
+
+env:
+  COMPOSE_FILE: gin/compose.specforge.yml
+  IMAGE: ghcr.io/ivan-maximoff/specforge:ci-v1
+  API_URL: http://localhost:8000/api
+
+jobs:
+  specforge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+
+      - name: Start the API
+        run: |
+          docker compose up -d --build
+          for _ in $(seq 1 120); do
+            curl --silent --output /dev/null "$API_URL/tags" && exit 0
+            sleep 1
+          done
+          docker compose logs
+          exit 1
+
+      - name: Create identities
+        run: python3 specforge_identities.py "$API_URL"
+
+      # As the runner's user, so the files it writes stay the job's; HOME is where the core keeps
+      # its own data, which nobody reads after the job.
+      - name: SpecForge
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          LLM_MODEL: openai/gpt-6.1-terra
+        run: >-
+          docker run --rm --network host --user "$(id -u):$(id -g)" -e HOME=/tmp
+          -v "$PWD:/repo" -e OPENAI_API_KEY -e LLM_MODEL "$IMAGE" ci
+
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: specforge
+          path: specforge-out/
