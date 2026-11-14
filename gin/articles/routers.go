@@ -241,9 +241,6 @@ func ArticleCommentList(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"comments": serializer.Response()})
 }
 func TagList(c *gin.Context) {
-	// Injected on purpose for the SpecForge demo: the pipeline must go red on this.
-	c.JSON(http.StatusInternalServerError, gin.H{"error": "injected bug"})
-	return
 	tagModels, err := getAllTags()
 	if err != nil {
 		c.JSON(http.StatusNotFound, common.NewError("articles", errors.New("Invalid param")))
