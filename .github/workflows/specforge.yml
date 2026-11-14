@@ -19,7 +19,7 @@ permissions:
 
 env:
   COMPOSE_FILE: gin/compose.specforge.yml
-  IMAGE: ghcr.io/ivan-maximoff/specforge:ci-v1
+  IMAGE: ghcr.io/spec-forge-testing/specforge:ci-v1
   API_URL: http://localhost:8000/api
 
 jobs:

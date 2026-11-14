@@ -18,7 +18,7 @@ Secrets: `OPENAI_API_KEY`. The image is private: its package grants this reposit
 docker compose -f gin/compose.specforge.yml up -d --build
 python3 specforge_identities.py http://localhost:8000/api
 docker run --rm --network host --user "$(id -u):$(id -g)" -e HOME=/tmp -v "$PWD:/repo" \
-  -e OPENAI_API_KEY -e LLM_MODEL=openai/gpt-6.1-terra ghcr.io/ivan-maximoff/specforge:ci-v1 ci
+  -e OPENAI_API_KEY -e LLM_MODEL=openai/gpt-6.1-terra ghcr.io/spec-forge-testing/specforge:ci-v1 ci
 ```
 
 Accepting the defects found now: the same with `baseline update` instead of `ci`, then commit
